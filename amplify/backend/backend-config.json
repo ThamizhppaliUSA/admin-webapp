@@ -1,0 +1,53 @@
+{
+    "auth": {
+        "cognito52e5d453": {
+            "service": "Cognito",
+            "providerPlugin": "awscloudformation"
+        }
+    },
+    "hosting": {
+        "S3AndCloudFront": {
+            "service": "S3AndCloudFront",
+            "providerPlugin": "awscloudformation"
+        }
+    },
+    "storage": {
+        "tamilpalliusa": {
+            "service": "DynamoDB",
+            "providerPlugin": "awscloudformation"
+        }
+    },
+    "function": {
+        "tamilpalliadminlambda": {
+            "service": "Lambda",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": [
+                {
+                    "category": "storage",
+                    "resourceName": "tamilpalliusa",
+                    "attributes": [
+                        "Name",
+                        "Arn"
+                    ]
+                }
+            ],
+            "build": true
+        }
+    },
+    "api": {
+        "tamilpalliapi": {
+            "service": "API Gateway",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": [
+                {
+                    "category": "function",
+                    "resourceName": "tamilpalliadminlambda",
+                    "attributes": [
+                        "Name",
+                        "Arn"
+                    ]
+                }
+            ]
+        }
+    }
+}

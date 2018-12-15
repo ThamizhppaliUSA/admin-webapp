@@ -1,0 +1,35 @@
+{
+    "paths": [
+        {
+            "name": "/tpusa",
+            "lambdaFunction": "tamilpalliadminlambda",
+            "privacy": {
+                "private": true,
+                "auth": "rw"
+            }
+        }
+    ],
+    "resourceName": "tamilpalliapi",
+    "apiName": "adminuide05dc48",
+    "functionArns": [
+        {
+            "lambdaFunction": "tamilpalliadminlambda"
+        }
+    ],
+    "privacy": {
+        "auth": 1,
+        "unauth": 0,
+        "authRoleName": "adminui-20181021163242-authRole",
+        "unAuthRoleName": "adminui-20181021163242-unauthRole"
+    },
+    "dependsOn": [
+        {
+            "category": "function",
+            "resourceName": "tamilpalliadminlambda",
+            "attributes": [
+                "Name",
+                "Arn"
+            ]
+        }
+    ]
+}

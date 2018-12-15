@@ -1,0 +1,7 @@
+{
+    "tableName": "tamilpalliusa",
+    "partitionKeyName": "rtype",
+    "partitionKeyType": "S",
+    "sortKeyName": "rid",
+    "sortKeyType": "S"
+}
